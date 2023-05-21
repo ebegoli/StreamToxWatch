@@ -1,6 +1,10 @@
 import asyncio
 
 class Stream:
+    """ class contains an asyncio Queue to hold the Event objects. \
+    The process_events method is an async method that runs in an infinite loop,\ 
+    continuously processing events by calling the handle_event method for each event. \
+    The enqueue_event method is used to add events to the queue. """
     def __init__(self):
         self.queue = asyncio.Queue()
 
@@ -18,6 +22,9 @@ class Stream:
 
 
 class Event:
+    """ The Event class represents an event object and can be customized \
+    based on your specific needs. In this example, it has a data attribute\
+    and a __repr__ method to provide a string representation of the event. """
     def __init__(self, data):
         self.data = data
 
@@ -26,6 +33,7 @@ class Event:
 
 
 async def main():
+    """ Example for basic handling. """
     stream = Stream()
     event1 = Event("Event 1")
     event2 = Event("Event 2")
